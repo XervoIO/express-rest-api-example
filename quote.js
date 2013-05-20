@@ -21,7 +21,7 @@ app.get('/quote/random', function(req, res) {
 });
 
 app.get('/quote/:id', function(req, res) {
-  if(quotes.length <= req.params.id) {
+  if(quotes.length <= req.params.id || req.params.id < 0) {
     res.statusCode = 404;
     return res.send('Error 404: No quote found');
   }
